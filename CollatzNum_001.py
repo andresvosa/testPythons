@@ -114,8 +114,6 @@ def main():
         #p.grid(which='major')
         #p.grid(which='minor')
         #p.minorticks_on()
-    #plt.xlim(0, 20)
-    #plt.ylim(0, 60)
     plt.show()
 
     plt.plot(serie, '.-', color='red')
