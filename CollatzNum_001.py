@@ -108,12 +108,22 @@ def main():
     ax[1].plot(my_col2.col_serie, '.-')
     ax[2].plot(col_number, '.-')
     for p in ax:
-        p.grid(True)
+        p.set_xlim([0, 20])
+        p.set_ylim([0, 60])
+        p.grid()
+        #p.grid(which='major')
+        #p.grid(which='minor')
+        #p.minorticks_on()
+    #plt.xlim(0, 20)
+    #plt.ylim(0, 60)
     plt.show()
 
     plt.plot(serie, '.-', color='red')
     plt.plot(my_col2.col_serie, '.-', color='green')
     plt.plot(col_number, '.-', color='blue')
+    plt.grid(b=True, which='major')
+    plt.minorticks_on()
+    plt.grid(b=True, which='minor', alpha=0.2)
     plt.legend()
     plt.show()
 
