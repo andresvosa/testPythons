@@ -81,11 +81,11 @@ def main():
     print(f'x={x}, y={y}, z={z}')
     numbrid = tuple(map(int, ('6', '7', '8')))
     print(numbrid)
-    reversed = numbrid[::-1]
-    print(reversed)
+    rotated_numbers = numbrid[::-1]
+    print(rotated_numbers)
     # find series of collatz number
     col_start : int = 14 #63728127 #949
-    col_number : int = []
+    col_number : List[int] = []
     col_number.append(col_start)
     while not col_number[-1] == 1:
          col_number.append(collatz_function(col_number[-1]))
@@ -95,8 +95,6 @@ def main():
     my_col = Collatz(12)
     serlen, serie = my_col.calc_serie()
     print(serlen, serie)
-    #print(type(my_col.steps))
-    #print(type(my_col.col_serie))
 
     my_col2 = Collatz.calc_init(13)
     print(my_col2.steps, my_col2.col_serie)
