@@ -10,11 +10,11 @@ def operatsiooniaeg(funktsioon):
 
 @operatsiooniaeg
 def minu_funktsioon(a):
-    sum = 0
+    sum_result = 0
     for i in range(a):
-        sum += i
+        sum_result += i
         #print(i)
-    print(sum)
+    print(sum_result)
 
 
 minu_funktsioon(100000)
