@@ -17,6 +17,6 @@ def on_scroll(x, y, dx, dy):
     logging.info('Mouse scrolled at ({0}, {1})({2}, {3})'.format(x, y, dx, dy))
 
 # with Listener(on_move=on_move, on_click=on_click, on_scroll=on_scroll) as listener:
-#     listener.join()         
+#    listener.join()         
 with  Listener(on_click=on_click) as listener:
     listener.join()
