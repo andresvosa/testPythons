@@ -28,7 +28,7 @@ def result_vector(r: float, x_0 : float = 0.5, vector_length : int = 500) -> flo
 
 
 def main():
-    print(next_lmap_no(2, 2))
+    #print(next_lmap_no(2, 2))
     x_plot = result_vector(3)
     print(x_plot)
     
@@ -36,11 +36,10 @@ def main():
     plt.grid()
     plt.show()
     
-    r_arr = np.linspace(0.1, 4.0, 1000, dtype=float)
+    r_arr = np.linspace(0.001, 4.0, 1000, dtype=float)
     print(r_arr)
     
     
-
 
 if __name__ == '__main__':
     main()
