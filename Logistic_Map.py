@@ -38,6 +38,8 @@ def main():
     
     r_arr = np.linspace(0.001, 4.0, 1000, dtype=float)
     print(r_arr)
+    print('sss')
+    
     
 
 if __name__ == '__main__':
