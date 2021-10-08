@@ -1,6 +1,27 @@
 import random as rnd
 import datetime
 
+logs = [
+    {
+        'type': 'Brown Cowboy Boots',
+        'actions': [
+            {'worker_id': 1, 'part': 'heel'},
+            {'worker_id': 2, 'part': 'toe box'},
+        ]
+    },
+    {
+        'type': 'Red Woman Boots',
+        'actions': [
+            {'worker_id': 2, 'part': 'tongue'},
+            {'worker_id': 1, 'part': 'heel'}
+        ]
+    }
+]
+
+def get_worker_actions(records, worker_id):
+    # siia tarvis funktsiooni
+    pass
+
 def list_sum(list_of_numbers):
     return sum(set(list_of_numbers))
 
