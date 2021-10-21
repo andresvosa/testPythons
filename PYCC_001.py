@@ -18,9 +18,23 @@ logs = [
     }
 ]
 
-def get_worker_actions(records, worker_id):
-    # siia tarvis funktsiooni
-    pass
+def get_worker_actions(recs, wrkid):
+    if isinstance(recs, list):
+        retlist = []
+        try:
+            for rec in recs:
+                #print(rec['actions'])
+                for re in rec['actions']:
+                    #print(re)
+                    if re['worker_id'] == wrkid and re['part'] != '':
+                        tuple_to_add = tuple((wrkid, re['part']))
+                        if tuple_to_add not in retlist:
+                            retlist.append(tuple_to_add)
+            return retlist
+        except TypeError:
+            return []
+    else:
+        return []
 
 def list_sum(list_of_numbers):
     return sum(set(list_of_numbers))
@@ -57,13 +71,13 @@ class Person(object):
 
 
 def  main ():
-    randomlist = rnd.sample(range(0, 100), 10)
-    print(randomlist)
-    print(list_sum(randomlist))
-    print(fibonacci_only(1,2,3,4, 5,6,7,8,9,610))
-    isik = Person('Andres', 'Võsa', datetime.datetime.now())
-    print(isik.full_name())
-
+    #randomlist = rnd.sample(range(0, 100), 10)
+    #print(randomlist)
+    #print(list_sum(randomlist))
+    #print(fibonacci_only(1,2,3,4, 5,6,7,8,9,610))
+    #isik = Person('Andres', 'Võsa', datetime.datetime.now())
+    #print(isik.full_name())
+    print(get_worker_actions(logs, 2))
 
 if __name__ == '__main__':
     main()
