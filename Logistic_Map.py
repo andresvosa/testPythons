@@ -1,11 +1,11 @@
 """[summary]
 """
 import numpy as np
-import numba
-from numba import jit
+#import numba
+#from numba import jit
 import matplotlib.pyplot as plt
 
-@jit(nopython=True)
+#@jit(nopython=True)
 def next_lmap_no(x_n : float, r_i : float) -> float:
     """Calculates the next logistic map number
 
@@ -18,7 +18,7 @@ def next_lmap_no(x_n : float, r_i : float) -> float:
     """
     return float(r_i * x_n * (1 - x_n))
 
-@jit(nopython=True)
+#@jit(nopython=True)
 def result_vector(r_i: float, x_0 : float = 0.5, vector_length : int = 500) -> float:
     """[summary]
 
