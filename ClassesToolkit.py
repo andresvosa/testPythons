@@ -61,7 +61,7 @@ def main():
     
     seed (8675309)
     n = 10000000
-    ringid = [Ring(random()) for i in range(n)]  
+    ringid = [Ring(random()) for _ in range(n)]  
     print ('keskmine pindala ', n , 'suvalise ringi kohta')
     avg = sum([c.pindala() for c in ringid]) / n
     print ('on %.2f' % avg)
