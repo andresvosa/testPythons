@@ -31,9 +31,7 @@ def main():
     x0 = [-8, 8, 27]
     X = odeint(lorenz, x0, t)
     print(X)
-    
-
-
 
 if __name__ == '__main__':
     main()
+    
