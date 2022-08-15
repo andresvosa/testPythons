@@ -8,12 +8,13 @@ class Ring(object):
     # flyweight design pattern suppresses
     # the instance dictionary
     __slots__ = ['diameter']
-    version = '0.7' # class variable. And for version number use string
+
+    version = '0.7'  # class variable. And for version number use string
     
     def __init__(self, radius):
         self.radius = radius
     
-    @property # Convert dottedaccess to method calls
+    @property  # Convert dottedaccess to method calls
     def radius(self):
         return self.diameter / 2.0
     
@@ -38,55 +39,56 @@ class Ring(object):
     def ymbermoot(self):
         return 2.0 * math.pi * self.radius
 
-    @staticmethod # sedasi saab teha meetodeid mida saab kutsuda välja ilma objekti loomata klassimeetod
+    @staticmethod  # sedasi saab teha meetodeid mida saab kutsuda välja ilma objekti loomata klassimeetod
     def angle_to_grade(nurk):
         return math.tan(math.radians(nurk)) * 100.0
 
     __ymbermoot = ymbermoot 
 
+
 # subclassing
-class rehv(Ring):
+class Rehv(Ring):
     
     def ymbermoot(self):
         return Ring.ymbermoot(self) * 1.25
 
     
 def main():
-    print ('Versioon: ', Ring.version)
+    print('Versioon: ', Ring.version)
     r = Ring(22)
-    print ('Ring raadiusega: ', r.radius)
-    print ('omab pindala: ', r.pindala())
-    print ('ja ymbermootu: ', r.ymbermoot())
-    print ()
+    print('Ring raadiusega: ', r.radius)
+    print('omab pindala: ', r.pindala())
+    print('ja ymbermootu: ', r.ymbermoot())
+    print()
     
-    seed (8675309)
+    seed(8675309)
     n = 10000000
     ringid = [Ring(random()) for _ in range(n)]  
-    print ('keskmine pindala ', n , 'suvalise ringi kohta')
+    print('keskmine pindala ', n, 'suvalise ringi kohta')
     avg = sum([c.pindala() for c in ringid]) / n
-    print ('on %.2f' % avg)
-    print ()
+    print('on %.2f' % avg)
+    print()
     
     cuts = [0.1, 0.7, 0.8]
     ringid = [Ring(r) for r in cuts]
     for ring in ringid:
-        print ('raadius: ', ring.radius)
-        print ('ymbermoot: ', ring.ymbermoot())
-        print ('kylm pindala: ', ring.pindala())
-        ring.radius *= 1.1 # Pythonis on klassi muutujad kõik avalikud 
-        print ('kuum pindala: ', ring.pindala())
-        print ()
+        print('raadius: ', ring.radius)
+        print('ymbermoot: ', ring.ymbermoot())
+        print('kylm pindala: ', ring.pindala())
+        ring.radius *= 1.1  # Pythonis on klassi muutujad kõik avalikud
+        print('kuum pindala: ', ring.pindala())
+        print()
         
-    k = rehv(22)
-    print ('rehvi raadius: ', k.radius)
-    print ('pind: ', k.pindala())
-    print ('parandatud ymbermoot: ', k.ymbermoot())
-    print ()
+    k = Rehv(22)
+    print('rehvi raadius: ', k.radius)
+    print('pind: ', k.pindala())
+    print('parandatud ymbermoot: ', k.ymbermoot())
+    print()
     
-    c = ring.from_bbd(25.1)
-    print ('ring raadiusega: ', c.radius)
-    print ('ja pindalaga: ', c.pindala())
-    print ()
+    c = Ring.from_bbd(25.1)
+    print('ring raadiusega: ', c.radius)
+    print('ja pindalaga: ', c.pindala())
+    print()
 
 
 if __name__ == '__main__':
