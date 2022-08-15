@@ -1,12 +1,13 @@
 """[summary]
 """
 import numpy as np
-#import numba
-#from numba import jit
+# import numba
+# from numba import jit
 import matplotlib.pyplot as plt
 
-#@jit(nopython=True)
-def next_lmap_no(x_n : float, r_i : float) -> float:
+
+# @jit(nopython=True)
+def next_lmap_no(x_n: float, r_i: float) -> float:
     """Calculates the next logistic map number
 
     Args:
@@ -18,8 +19,9 @@ def next_lmap_no(x_n : float, r_i : float) -> float:
     """
     return float(r_i * x_n * (1 - x_n))
 
-#@jit(nopython=True)
-def result_vector(r_i: float, x_0 : float = 0.5, vector_length : int = 500) -> float:
+
+# @jit(nopython=True)
+def result_vector(r_i: float, x_0: float = 0.5, vector_length: int = 500) -> float:
     """[summary]
 
     Args:
@@ -35,10 +37,11 @@ def result_vector(r_i: float, x_0 : float = 0.5, vector_length : int = 500) -> f
         x_ret[i + 1] = next_lmap_no(x_ret[i], r_i)
     return x_ret
 
+
 def main():
     """[summary]
     """
-    #print(next_lmap_no(2, 2))
+    # print(next_lmap_no(2, 2))
     x_plot = result_vector(3)
     print(x_plot)
 
@@ -50,6 +53,6 @@ def main():
     print(r_arr)
     print('sss')
 
+
 if __name__ == '__main__':
     main()
-    
