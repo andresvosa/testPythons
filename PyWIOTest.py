@@ -2,6 +2,7 @@ from pywebio import start_server
 from pywebio.input import input, FLOAT
 from pywebio.output import put_text
 
+
 def bmi():
     height = input("Your Height(cm)：", type=FLOAT)
     weight = input("Your Weight(kg)：", type=FLOAT)
@@ -18,5 +19,5 @@ def bmi():
             break
 
 if __name__ == '__main__':
-    #bmi()
+    # bmi()
     start_server(bmi, port=36535, host='127.0.0.1', debug=True) 

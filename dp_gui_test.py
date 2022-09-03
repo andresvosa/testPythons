@@ -2,10 +2,12 @@
 """
 import dearpygui.dearpygui as dpg
 
+
 def save_callback():
     """[summary]
     """
     print("Save Clicked: " + dpg.get_value(sis_tekst))
+
 
 with dpg.window(label="Example Window", height=300, width=300):
     dpg.add_text("Hello world")
