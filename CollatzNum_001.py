@@ -1,21 +1,22 @@
-from __future__ import annotations # Klassi enda tüübi tagastuse jaoks
-import numba
+from __future__ import annotations  # Klassi enda tüübi tagastuse jaoks
+# import numba
 from numba import jit
 from typing import List, Tuple
 import matplotlib.pyplot as plt
 
+
 class Collatz (object):
     """Class for dealing with Collatz series
     """
-    def __init__(self, start_number : int) -> None:
+    def __init__(self, start_number: int) -> None:
         """Constructor for Collatz class without calculation
         Args:
             start_number (int): Starting number for the Collatz serie
         """
-        self.col_serie : List[int] = [start_number]
+        self.col_serie: List[int] = [start_number]
 
     @classmethod
-    def calc_init(cls, start_num : int) -> Collatz:
+    def calc_init(cls, start_num: int) -> Collatz:
         """Other constructor for Collatz serie object
             Also calculates the serie
         Args:
@@ -30,7 +31,7 @@ class Collatz (object):
 
     @staticmethod
     @jit(nopython=True)     
-    def calc_next(number : int) -> int:
+    def calc_next(number: int) -> int:
         """Calculate next Collatz number from integer
             Dfined as staticmethod for using numba
         Args:
@@ -40,12 +41,12 @@ class Collatz (object):
             int: Next collatz number
         """ 
         # return collatz_function(number)
-        if (number % 2 == 0):
+        if number % 2 == 0:
             return int(number / 2)
         else:
             return int((3 * number) + 1)
     
-    def calc_serie (self) -> Tuple[int, List[int]]: 
+    def calc_serie(self) -> Tuple[int, List[int]]:
         """Calculates Collatz serie numbers until 1 
             Starts with first list element
         Returns:
@@ -53,12 +54,12 @@ class Collatz (object):
         """
         while not (self.col_serie[-1] == 1):
             self.col_serie.append(self.calc_next(self.col_serie[-1]))
-        self.steps : int = (len(self.col_serie) - 1)
+        self.steps: int = (len(self.col_serie) - 1)
         return self.steps, self.col_serie
         
 
 @jit(nopython=True)
-def collatz_function(number : int) -> int:
+def collatz_function(number: int) -> int:
     """Calculate next Collatz number from integer
 
     Args:
@@ -68,7 +69,7 @@ def collatz_function(number : int) -> int:
         int: Next collatz number
     """    
     
-    if (number % 2 == 0):
+    if number % 2 == 0:
         return int(number / 2)
     else:
         return int((3 * number) + 1)
@@ -84,11 +85,10 @@ def main():
     rotated_numbers = numbrid[::-1]
     print(rotated_numbers)
     # find series of collatz number
-    col_start : int = 14 #63728127 #949
-    col_number : List[int] = []
-    col_number.append(col_start)
+    col_start: int = 14  # 63728127 #949
+    col_number: List[int] = [col_start]
     while not col_number[-1] == 1:
-         col_number.append(collatz_function(col_number[-1]))
+        col_number.append(collatz_function(col_number[-1]))
     print(len(col_number) - 1)
     print(col_number)
     
@@ -109,9 +109,9 @@ def main():
         p.set_xlim([0, 20])
         p.set_ylim([0, 60])
         p.grid()
-        #p.grid(which='major')
-        #p.grid(which='minor')
-        #p.minorticks_on()
+        # p.grid(which='major')
+        # p.grid(which='minor')
+        # p.minorticks_on()
     plt.show()
 
     plt.plot(serie, '.-', color='red')
@@ -122,6 +122,7 @@ def main():
     plt.grid(b=True, which='minor', alpha=0.2)
     plt.legend()
     plt.show()
+
 
 if __name__ == '__main__':
     main()

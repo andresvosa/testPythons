@@ -8,6 +8,8 @@
 # Blueprint:
 # condition_if_true if condition else condition_if_false
 
+import math
+
 # Example:
 is_nice = True
 state = "nice" if is_nice else "not nice"
@@ -20,12 +22,13 @@ add = lambda x, y: x + y
 print(add(3, 5))
 # Output: 8
 
+lst = [1, 2, 3]
 # [thing for thing in list_of_things]
 doubled = [num * 2 for num in lst]
 
 # Muutujate kirjeldamine Pythonis (annotations)
 some_number: int           # variable without initial value
-some_list: List[int] = []  # variable with initial value
+some_list: list[int] = []  # variable with initial value
 
 def circumference(radius: float = 10.0) -> float:
     return 2 * math.pi * radius

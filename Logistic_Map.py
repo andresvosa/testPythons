@@ -3,6 +3,8 @@
 import numpy as np
 # import numba
 # from numba import jit
+#import matplotlib
+#matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 
 
