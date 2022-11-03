@@ -1,4 +1,5 @@
 import time
+import functools
 
 
 def operatsiooniaeg(funktsioon):
@@ -19,4 +20,15 @@ def minu_funktsioon(a):
     print(sum_result)
 
 
-minu_funktsioon(100000)
+@functools.cache
+def fibonacci(n: int) -> int:
+    if n < 2:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+
+if __name__ == '__main__':
+    start = time.perf_counter()
+    print(str(fibonacci(150)))
+    print('aeg: ', time.perf_counter() - start)
+    minu_funktsioon(100000)
