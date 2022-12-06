@@ -29,6 +29,6 @@ def fibonacci(n: int) -> int:
 
 if __name__ == '__main__':
     start = time.perf_counter()
-    print(str(fibonacci(150)))
+    print(str(fibonacci(150)/fibonacci(149)))
     print('aeg: ', time.perf_counter() - start)
     minu_funktsioon(100000)
