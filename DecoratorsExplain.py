@@ -32,3 +32,4 @@ if __name__ == '__main__':
     print(str(fibonacci(150)/fibonacci(149)))
     print('aeg: ', time.perf_counter() - start)
     minu_funktsioon(100000)
+    print(fibonacci(10))
