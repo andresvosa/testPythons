@@ -12,7 +12,7 @@ def operatsiooniaeg(funktsioon):
 
 
 @operatsiooniaeg
-def minu_funktsioon(a):
+def minu_funktsioon(a: int):
     sum_result = 0
     for i in range(a):
         sum_result += i
@@ -32,4 +32,4 @@ if __name__ == '__main__':
     print(str(fibonacci(150)/fibonacci(149)))
     print('aeg: ', time.perf_counter() - start)
     minu_funktsioon(100000)
-    print(fibonacci(10))
+    print(fibonacci(100))
